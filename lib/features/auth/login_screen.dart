@@ -10,6 +10,7 @@ import 'package:snap_buy_app/core/widgets/custom_app_button.dart';
 import 'package:snap_buy_app/features/auth/squared_image.dart';
 import 'package:snap_buy_app/features/auth/widgets/custom_text_form_feild.dart';
 
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
   static String? email;
@@ -94,7 +95,7 @@ class LoginScreen extends StatelessWidget {
                           LoginScreen.email = emailcon.text;
                           if (credential.user!.emailVerified) {
                             Navigator.of(context)
-                                .pushReplacementNamed("homepage");
+                                .pushReplacementNamed(Routes.appLayoutScreen);
                           } else {
                             AwesomeDialog(
                               context: context,
