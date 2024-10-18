@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snap_buy_app/core/routes/routes.dart';
 import 'package:snap_buy_app/features/app_layout/ui/app_layout.dart';
+import 'package:snap_buy_app/features/auth/forget_password.dart';
 import 'package:snap_buy_app/features/auth/login_screen.dart';
 import 'package:snap_buy_app/features/auth/register.dart';
 import 'package:snap_buy_app/features/home/data/model/product/product_model.dart';
@@ -26,8 +27,12 @@ class AppRoutes {
 
       case Routes.registerScreen:
         return MaterialPageRoute(builder: (_) => const Register());
+
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
+
+      case Routes.forgetPassword:
+        return MaterialPageRoute(builder: (_) => const ForgetPassword());
     }
 
     return null;

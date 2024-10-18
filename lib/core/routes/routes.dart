@@ -5,4 +5,5 @@ class Routes {
   static const String productDetailScreen = 'ProductDetailScreen';
   static const String loginScreen = 'loginScreen';
   static const String registerScreen = 'registerScreen';
+  static const String forgetPassword = 'ForgetPassword';
 }
