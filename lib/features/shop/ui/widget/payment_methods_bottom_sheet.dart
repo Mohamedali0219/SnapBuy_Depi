@@ -19,7 +19,6 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
           SizedBox(height: 32.0),
           CustomAppButton(
             disabledBackgroundColor: ColorsManager.redColor,
-            // backgroundColor: ColorsManager.redColor,
             width: double.infinity,
             height: 60,
             child: Text('Submit order'),
