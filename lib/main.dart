@@ -15,7 +15,7 @@ void main() async {
   Bloc.observer = MyBlocObserver();
 
   WidgetsFlutterBinding.ensureInitialized();
-  Stripe.publishableKey = ApiKeys.publishableKey;
+
 //  firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -29,6 +29,6 @@ void main() async {
   await Hive.openBox(Boxes.onBoardingBox);
   await Hive.openBox<ProductModel>(Boxes.shoppingCartBox);
   await Hive.openBox<ProductModel>(Boxes.favouriteProductsBox);
-
+  Stripe.publishableKey = ApiKeys.publishableKey;
   runApp(const SnapBuyApp());
 }

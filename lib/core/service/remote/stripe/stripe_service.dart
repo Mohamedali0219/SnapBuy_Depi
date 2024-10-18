@@ -7,8 +7,6 @@ import 'package:snap_buy_app/features/shop/data/models/init_payment_sheet_input_
 import 'package:snap_buy_app/features/shop/data/models/payment_intent_input_model.dart';
 import 'package:snap_buy_app/features/shop/data/models/payment_intent_model/payment_intent_model.dart';
 
-
-
 class StripeService {
   final ApiService apiService = ApiService();
   Future<PaymentIntentModel> createPaymentIntent(
@@ -22,7 +20,7 @@ class StripeService {
     return PaymentIntentModel.fromJson(response.data);
   }
 
-  // Future<PaymentIntentModel> createCustomer(
+  // Future<String> createCustomer(
   //     PaymentIntentInputModel paymentIntentInputModel) async {
   //   var response = await apiService.post(
   //     body: paymentIntentInputModel.toJson(),
@@ -30,7 +28,7 @@ class StripeService {
   //     token: ApiKeys.secretKey,
   //     contentType: Headers.formUrlEncodedContentType,
   //   );
-  //   return PaymentIntentModel.fromJson(response.data);
+  //   return response.data['id'];
   // }
 
   Future<EphemeralKeyModel> createEphemeralKey(

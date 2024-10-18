@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:snap_buy_app/core/errors/failures.dart';
 import 'package:snap_buy_app/core/service/remote/stripe/stripe_service.dart';
@@ -12,8 +14,10 @@ class CheckoutRepoImpl extends CheckoutRepo {
     try {
       await stripeService.makePayment(
           paymentIntentInputModel: paymentIntentInputModel);
+      log('yes');
       return right(null);
     } catch (e) {
+      log(e.toString());
       return left(
         ServerError(
           errorMessage: e.toString(),
