@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:snap_buy_app/core/themes/colors_manager.dart';
+import 'package:snap_buy_app/core/widgets/custom_app_button.dart';
 
 import 'payment_methods_list_view.dart';
 
@@ -15,6 +17,13 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
           SizedBox(height: 16.0),
           PaymentMethodsListView(),
           SizedBox(height: 32.0),
+          CustomAppButton(
+            disabledBackgroundColor: ColorsManager.redColor,
+            // backgroundColor: ColorsManager.redColor,
+            width: double.infinity,
+            height: 60,
+            child: Text('Submit order'),
+          ),
           //  CustomButtonBlocConsumer(),
         ],
       ),
