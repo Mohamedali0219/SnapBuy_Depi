@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'payment_methods_list_view.dart';
+
 class PaymentMethodsBottomSheet extends StatelessWidget {
   const PaymentMethodsBottomSheet({super.key});
 
@@ -13,7 +15,7 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
           SizedBox(height: 16.0),
           PaymentMethodsListView(),
           SizedBox(height: 32.0),
-          CustomButtonBlocConsumer(),
+          //  CustomButtonBlocConsumer(),
         ],
       ),
     );

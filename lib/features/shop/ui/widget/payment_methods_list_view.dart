@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:snap_buy_app/core/utils/app_images.dart';
+
+import 'payment_method_item.dart';
 
 class PaymentMethodsListView extends StatefulWidget {
   const PaymentMethodsListView({super.key});
@@ -9,8 +12,8 @@ class PaymentMethodsListView extends StatefulWidget {
 
 class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
   final List<String> paymentMethodsImage = const [
-    'assets/image/card.svg',
-    'assets/image/paypal.svg',
+    AppImages.paymentCard,
+    AppImages.paymentPayPal,
   ];
   int activeIndex = 0;
   @override

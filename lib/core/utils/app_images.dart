@@ -10,4 +10,9 @@ class AppImages {
   static const String onboarding1Image = 'assets/images/onboarding1.png';
   static const String onboarding2Image = 'assets/images/onboarding2.png';
   static const String onboarding3Image = 'assets/images/onboarding3.png';
+
+  // payment
+
+  static const String paymentCard = 'assets/images/mastercard.svg';
+  static const String paymentPayPal = 'assets/images/paypal.svg';
 }
