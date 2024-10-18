@@ -11,6 +11,8 @@ import 'package:snap_buy_app/features/shop/logic/shop_cubit/shop_cart_state.dart
 import 'package:snap_buy_app/features/shop/ui/widget/calc_money.dart';
 import 'package:snap_buy_app/features/shop/ui/widget/shop_list_view.dart';
 
+import 'widget/payment_methods_bottom_sheet.dart';
+
 class ShoppingCartScreen extends StatelessWidget {
   const ShoppingCartScreen({super.key});
 
