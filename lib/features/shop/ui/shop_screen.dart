@@ -8,6 +8,7 @@ import 'package:snap_buy_app/core/widgets/custom_appbar.dart';
 import 'package:snap_buy_app/features/home/data/model/product/product_model.dart';
 import 'package:snap_buy_app/features/shop/logic/shop_cubit/shop_cart_cubit.dart';
 import 'package:snap_buy_app/features/shop/logic/shop_cubit/shop_cart_state.dart';
+import 'package:snap_buy_app/features/shop/ui/widget/calc_money.dart';
 import 'package:snap_buy_app/features/shop/ui/widget/shop_list_view.dart';
 
 class ShoppingCartScreen extends StatelessWidget {
@@ -24,6 +25,8 @@ class ShoppingCartScreen extends StatelessWidget {
         // Calculate the total price
         double totalPrice =
             products.fold(0, (sum, product) => sum + product.price);
+        double summmery = 15;
+        summmery += totalPrice;
 
         return Column(
           children: [
@@ -36,19 +39,20 @@ class ShoppingCartScreen extends StatelessWidget {
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
                 children: [
-                  Text(
-                    'Total Price:',
-                    style: TextStyles.styleBold(context,
-                        fontSize: 22, color: ColorsManager.redColor),
+                  CalcMoney(
+                    text: 'Order :',
+                    money: totalPrice.toStringAsFixed(2),
                   ),
-                  Text(
-                    '£${totalPrice.toStringAsFixed(2)}',
-                    style: TextStyles.styleBold(context,
-                        fontSize: 22, color: ColorsManager.redColor),
+                  const CalcMoney(
+                    text: 'Delivery :',
+                    money: '15',
                   ),
+                  CalcMoney(
+                    text: 'Total Price :',
+                    money: summmery.toStringAsFixed(2),
+                  )
                 ],
               ),
             ),
@@ -70,7 +74,13 @@ class ShoppingCartScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                 showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return const PaymentMethodsBottomSheet();
+                  });
+              },
             ),
             SizedBox(height: 20.h),
           ],
@@ -79,3 +89,4 @@ class ShoppingCartScreen extends StatelessWidget {
     );
   }
 }
+
