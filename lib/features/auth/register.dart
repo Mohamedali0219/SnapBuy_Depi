@@ -70,10 +70,11 @@ class Register extends StatelessWidget {
                           // Navigator.pushNamed(context, '/Login');
                           context.pushNamed(Routes.loginScreen);
                         },
-                        child: const Text(
+                        child: Text(
                           "Already have an account ?",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: Colors.red.shade700,
                           ),
                         ),
                       )
@@ -110,8 +111,9 @@ class Register extends StatelessWidget {
                                         id: FirebaseAuth
                                             .instance.currentUser!.uid,
                                         name: usernamecon.text);
-                                    Navigator.of(context)
-                                        .pushReplacementNamed("homepage");
+                                    context.pushNamedAndRemoveUntil(
+                                        Routes.appLayoutScreen,
+                                        predicate: (route) => false);
                                   } on FirebaseAuthException catch (e) {
                                     if (e.code == 'weak-password') {
                                       AwesomeDialog(
@@ -139,7 +141,7 @@ class Register extends StatelessWidget {
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.red.shade700,
-                                foregroundColor: Colors.black,
+                                foregroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),

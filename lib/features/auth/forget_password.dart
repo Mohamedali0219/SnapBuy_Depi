@@ -1,6 +1,8 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:snap_buy_app/core/helper/extensions/navigation_extension.dart';
+import 'package:snap_buy_app/core/routes/routes.dart';
 import 'package:snap_buy_app/features/auth/widgets/custom_text_form_feild.dart';
 
 class ForgetPassword extends StatelessWidget {
@@ -61,7 +63,8 @@ class ForgetPassword extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.restorablePopAndPushNamed(context, '/Login');
+                      context.pushNamed(Routes.loginScreen);
+                      //Navigator.restorablePopAndPushNamed(context, '/Login');
                     },
                     child: Center(
                       child: Text.rich(TextSpan(children: [
@@ -129,7 +132,7 @@ class ForgetPassword extends StatelessWidget {
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.red.shade700,
-                            foregroundColor: Colors.black,
+                            foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),

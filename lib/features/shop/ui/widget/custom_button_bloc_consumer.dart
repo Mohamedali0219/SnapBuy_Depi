@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +22,6 @@ class CustomButtonBlocConsumer extends StatelessWidget {
         if (state is PaymentSuccess) {
           LocalDatabase.deleteAllProductsFromShoppingCart();
           products.clear();
-          log(products.length.toString());
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) {
