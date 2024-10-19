@@ -8,6 +8,10 @@ import 'package:snap_buy_app/features/onboarding/ui/onboarding_screen.dart';
 import 'package:snap_buy_app/features/product_detials/ui/product_detials_screen.dart';
 import 'package:snap_buy_app/features/spalsh/ui/splash_screen.dart';
 
+import '../../features/orders/myOrdersPage.dart';
+import '../../features/orders/orderDetailsPage.dart';
+import '../../features/profile/profilePage.dart';
+
 class AppRoutes {
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -28,6 +32,13 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const Register());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
+
+      case Routes.profileScreen:
+        return MaterialPageRoute(builder: (_) => const ProfilePage());
+      case Routes.orderScreen:
+        return MaterialPageRoute(builder: (_) => const MyOrdersPage());
+      case Routes.orderDetailsScreen:
+        return MaterialPageRoute(builder: (_) => const OrderDetailsPage());
     }
 
     return null;

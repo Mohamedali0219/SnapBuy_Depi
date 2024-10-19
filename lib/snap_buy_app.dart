@@ -32,7 +32,7 @@ class SnapBuyApp extends StatelessWidget {
           ),
 
           // home: LoginScreen(),
-          initialRoute: Routes.splashScreen,
+          initialRoute: Routes.profileScreen,
           onGenerateRoute: appRoutes.onGenerateRoute,
         ),
       ),
