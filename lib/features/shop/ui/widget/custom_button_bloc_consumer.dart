@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snap_buy_app/core/functions/show_snak_bar.dart';
 import 'package:snap_buy_app/core/service/local/local_database.dart';
 import 'package:snap_buy_app/core/themes/colors_manager.dart';
 import 'package:snap_buy_app/core/widgets/custom_app_button.dart';
@@ -31,12 +32,9 @@ class CustomButtonBlocConsumer extends StatelessWidget {
         }
         if (state is PaymentFailure) {
           Navigator.pop(context);
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              backgroundColor: ColorsManager.redColor,
-              content: Text('Payment not completed'),
-            ),
-          );
+
+          showSnakBar(
+              context, 'Payment Not Completed', ColorsManager.darkColor);
         }
       },
       builder: (context, state) {
