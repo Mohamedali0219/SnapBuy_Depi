@@ -90,7 +90,7 @@ class ShoppingCartScreen extends StatelessWidget {
                       return BlocProvider(
                         create: (context) => PaymentCubit(CheckoutRepoImpl()),
                         child: PaymentMethodsBottomSheet(
-                          amount: val,
+                          amount: val, products: products,
                         ),
                       );
                     });

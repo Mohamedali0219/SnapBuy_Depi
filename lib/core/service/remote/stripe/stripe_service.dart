@@ -20,16 +20,20 @@ class StripeService {
     return PaymentIntentModel.fromJson(response.data);
   }
 
-  // Future<String> createCustomer(
-  //     PaymentIntentInputModel paymentIntentInputModel) async {
-  //   var response = await apiService.post(
-  //     body: paymentIntentInputModel.toJson(),
-  //     url: 'https://api.stripe.com/v1/customers',
-  //     token: ApiKeys.secretKey,
-  //     contentType: Headers.formUrlEncodedContentType,
-  //   );
-  //   return response.data['id'];
-  // }
+  Future<String> createCustomer(
+    {required String id , required String name }) async {
+    var response = await apiService.post(
+      body: {
+        'id': id,
+        'name': name,
+        
+      },
+      url: 'https://api.stripe.com/v1/customers',
+      token: ApiKeys.secretKey,
+      contentType: Headers.formUrlEncodedContentType,
+    );
+    return response.data['id'];
+  }
 
   Future<EphemeralKeyModel> createEphemeralKey(
       {required String customerID}) async {
@@ -65,6 +69,7 @@ class StripeService {
   Future makePayment(
       {required PaymentIntentInputModel paymentIntentInputModel}) async {
     var paymentIntentModel = await createPaymentIntent(paymentIntentInputModel);
+   
     var ephemeralKeyModel = await createEphemeralKey(
         customerID: paymentIntentInputModel.customerId);
     var initPaymentSheetInputModel = InitPaymentSheetInputModel(

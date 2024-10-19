@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:snap_buy_app/core/helper/extensions/navigation_extension.dart';
 import 'package:snap_buy_app/core/routes/routes.dart';
+import 'package:snap_buy_app/core/service/remote/stripe/stripe_service.dart';
 import 'package:snap_buy_app/features/auth/squared_image.dart';
 import 'package:snap_buy_app/features/auth/widgets/custom_text_form_feild.dart';
 
@@ -105,6 +106,10 @@ class Register extends StatelessWidget {
                                     );
                                     FirebaseAuth.instance.currentUser!
                                         .sendEmailVerification();
+                                    StripeService().createCustomer(
+                                        id: FirebaseAuth
+                                            .instance.currentUser!.uid,
+                                        name: usernamecon.text);
                                     Navigator.of(context)
                                         .pushReplacementNamed("homepage");
                                   } on FirebaseAuthException catch (e) {

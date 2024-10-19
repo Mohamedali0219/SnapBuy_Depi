@@ -43,6 +43,9 @@ class LocalDatabase {
   static deleteProductFromShoppingCart(int index) {
     boxShopping.deleteAt(index);
   }
+  static deleteAllProductsFromShoppingCart(){
+    boxShopping.clear();
+  }
 
  static List<ProductModel> getShoppingCartProducts() {
     return boxShopping.values.toList();

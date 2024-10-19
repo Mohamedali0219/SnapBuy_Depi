@@ -18,6 +18,14 @@ class ShopCartRepo {
     }
   }
 
+  void deleteAllProductFromShoppingCart() {
+    try {
+      LocalDatabase.deleteAllProductsFromShoppingCart();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Future<List<ProductModel>> getShoppingCartProducts() async {
     try {
       return LocalDatabase.getShoppingCartProducts();

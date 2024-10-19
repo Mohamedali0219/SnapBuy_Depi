@@ -15,4 +15,6 @@ class AppImages {
 
   static const String paymentCard = 'assets/images/mastercard.svg';
   static const String paymentPayPal = 'assets/images/paypal.svg';
+
+  static const String successImage = 'assets/images/success_image.png';
 }

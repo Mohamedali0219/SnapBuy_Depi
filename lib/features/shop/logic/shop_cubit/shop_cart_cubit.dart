@@ -11,37 +11,48 @@ class ShopCartCubit extends Cubit<ShopCartState> {
   final ShopCartRepo shopCartRepo = ShopCartRepo();
   List<ProductModel> products = [];
 
-void addProductToShoppingCart(ProductModel product) async {
-  emit(ShopCartLoading());
-  try {
-    final existingProductIndex = products.indexWhere(
-      (p) => p.id == product.id,
-    );
+  void addProductToShoppingCart(ProductModel product) async {
+    emit(ShopCartLoading());
+    try {
+      final existingProductIndex = products.indexWhere(
+        (p) => p.id == product.id,
+      );
 
-    if (existingProductIndex != -1) {
-      final existingProduct = products[existingProductIndex];
-      if (existingProduct.quantity == product.quantity) {
-        emit(ProductExistsInCart());
+      if (existingProductIndex != -1) {
+        final existingProduct = products[existingProductIndex];
+        if (existingProduct.quantity == product.quantity) {
+          emit(ProductExistsInCart());
+        } else {
+          // Update the product quantity in the cart
+          products[existingProductIndex] = product;
+          shopCartRepo.addProductToShoppingCart(product);
+          emit(AddToShopCart());
+        }
       } else {
-        // Update the product quantity in the cart
-        products[existingProductIndex] = product;
+        // Add the new product to the cart
+        products.add(product);
         shopCartRepo.addProductToShoppingCart(product);
         emit(AddToShopCart());
       }
-    } else {
-      // Add the new product to the cart
-      products.add(product);
-      shopCartRepo.addProductToShoppingCart(product);
-      emit(AddToShopCart());
+    } catch (e) {
+      emit(AddToCartError(e.toString()));
     }
-  } catch (e) {
-    emit(AddToCartError(e.toString()));
   }
-}
+
   void removeProductFromShoppingCart(int index) async {
     emit(ShopCartLoading());
     try {
       shopCartRepo.deleteProductFromShoppingCart(index);
+      emit(RemoveFromShopCart());
+    } catch (e) {
+      emit(RemoveFromCartError(e.toString()));
+    }
+  }
+
+  void removeAllProductFromShoppingCart() async {
+    emit(ShopCartLoading());
+    try {
+      shopCartRepo.deleteAllProductFromShoppingCart();
       emit(RemoveFromShopCart());
     } catch (e) {
       emit(RemoveFromCartError(e.toString()));
