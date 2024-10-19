@@ -29,7 +29,7 @@ class CartItem extends StatelessWidget {
         context.pushNamed(Routes.productDetailScreen, arguments: product);
       },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0.sp),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,23 +39,20 @@ class CartItem extends StatelessWidget {
               height: 100.h,
               decoration: BoxDecoration(
                 color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.sp),
                 image: DecorationImage(
                     image: CachedNetworkImageProvider(product.thumbnail),
                     fit: BoxFit.fill),
               ),
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: 10.w),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: 150.w,
-                  child: Text(
-                    displayTitle,
-                    style: TextStyles.styleBold(context,
-                        fontSize: 20, color: ColorsManager.darkColor),
-                  ),
+                Text(
+                  displayTitle,
+                  style: TextStyles.styleBold(context,
+                      fontSize: 20.sp, color: ColorsManager.darkColor),
                 ),
                 Text(
                   'Price: ${product.price}',
@@ -80,9 +77,9 @@ class CartItem extends StatelessWidget {
               builder: (context, state) {
                 var cubit = context.read<ShopCartCubit>();
                 return IconButton(
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.delete,
-                    size: 30,
+                    size: 30.sp,
                     color: ColorsManager.redColor,
                   ),
                   onPressed: () {

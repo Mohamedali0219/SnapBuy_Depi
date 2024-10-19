@@ -8,7 +8,6 @@ import 'package:snap_buy_app/core/themes/text_styles.dart';
 import 'package:snap_buy_app/core/widgets/custom_app_button.dart';
 import 'package:snap_buy_app/core/widgets/custom_appbar.dart';
 import 'package:snap_buy_app/features/home/data/model/product/product_model.dart';
-import 'package:snap_buy_app/features/shop/data/repos/checkout_repo.dart';
 import 'package:snap_buy_app/features/shop/data/repos/checkout_repo_impl.dart';
 import 'package:snap_buy_app/features/shop/logic/shop_cubit/payment_cubit.dart';
 import 'package:snap_buy_app/features/shop/logic/shop_cubit/shop_cart_cubit.dart';
