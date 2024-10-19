@@ -19,7 +19,7 @@ class CustomButtonBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentCubit, PaymentState>(
-      listener: (context, state)  {
+      listener: (context, state) {
         if (state is PaymentSuccess) {
           LocalDatabase.deleteAllProductsFromShoppingCart();
           products.clear();
@@ -34,8 +34,9 @@ class CustomButtonBlocConsumer extends StatelessWidget {
         if (state is PaymentFailure) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage),
+            const SnackBar(
+              backgroundColor: ColorsManager.redColor,
+              content: Text('Payment not completed'),
             ),
           );
         }
