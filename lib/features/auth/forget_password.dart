@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_buy_app/core/helper/extensions/navigation_extension.dart';
 import 'package:snap_buy_app/core/routes/routes.dart';
 import 'package:snap_buy_app/features/auth/widgets/custom_text_form_feild.dart';
@@ -19,7 +20,7 @@ class ForgetPassword extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(left: 10, top: 50),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -27,7 +28,7 @@ class ForgetPassword extends StatelessWidget {
                   Text(
                     "Forget Password",
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 40.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -39,16 +40,11 @@ class ForgetPassword extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.only(left: 18),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Please  enter your email address. you will receive a link\n to create a new password via email",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
+              child: Text(
+                "Please  enter your email address. you will receive a link to create a new password via email",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             CustomTextFormField(

@@ -23,7 +23,7 @@ class CategoryItem extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
               decoration: BoxDecoration(
                 color: isSelected ? ColorsManager.redColor : Colors.grey[200],
                 borderRadius: BorderRadius.circular(10),

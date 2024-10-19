@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snap_buy_app/core/widgets/product_widget.dart';
 import 'package:snap_buy_app/core/widgets/shimmer_product_widget.dart';
 import 'package:snap_buy_app/features/home/data/model/product/product_model.dart';
@@ -39,12 +40,12 @@ class ProductGridView extends StatelessWidget {
         return SizedBox(
           height: hight * 0.6,
           child: GridView.builder(
-            padding: const EdgeInsets.all(8.0),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            padding: EdgeInsets.all(8.0.sp),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, // Number of columns in the grid
-              crossAxisSpacing: 10.0, // Spacing between columns
-              mainAxisSpacing: 10.0, // Spacing between rows
-              childAspectRatio: 0.6, // Aspect ratio of each item
+              crossAxisSpacing: 10.0.sp, // Spacing between columns
+              mainAxisSpacing: 10.0.sp, // Spacing between rows
+              childAspectRatio: 0.6.sp, // Aspect ratio of each item
             ),
             itemCount: products.length,
             itemBuilder: (context, index) {

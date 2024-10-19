@@ -19,7 +19,7 @@ class ProductWidget extends StatelessWidget {
             arguments: product);
       },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0.sp),
         child: Stack(
           children: [
             Column(
@@ -31,7 +31,7 @@ class ProductWidget extends StatelessWidget {
                         child: CachedNetworkImage(
                           imageUrl: product.thumbnail,
                           width: 190,
-                          height: 184,
+                          height: 184.h,
                           fit: BoxFit.fill,
                         ),
                       )
@@ -40,24 +40,24 @@ class ProductWidget extends StatelessWidget {
                         child: Image.asset(
                           AppImages.noProductImage,
                           width: 190,
-                          height: 184,
+                          height: 184.h,
                           fit: BoxFit.fill,
                         ),
                       ),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
+                  padding: EdgeInsets.all(5.0.sp),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 148,
+                        width: 148.w,
                         child: Text(product.title,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyles.styleRegular(context,
                                 color: ColorsManager.greyColor)),
                       ),
                       SizedBox(
-                        width: 60,
+                        width: 60.w,
                         child: FittedBox(
                           fit: BoxFit.cover,
                           child: Text(product.category,
@@ -68,7 +68,7 @@ class ProductWidget extends StatelessWidget {
                       Row(
                         children: [
                           SizedBox(
-                            width: 70,
+                            width: 70.w,
                             child: FittedBox(
                               fit: BoxFit.fill,
                               child: Text(
@@ -81,13 +81,13 @@ class ProductWidget extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(width: 10.w),
+                          SizedBox(width: 5.w),
                           Row(
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.star,
                                 color: Colors.amberAccent,
-                                size: 20,
+                                size: 20.sp,
                               ),
                               SizedBox(width: 5.w),
                               Text(
@@ -141,8 +141,8 @@ class ProductWidget extends StatelessWidget {
             // ),
 
             Positioned(
-              top: 20,
-              left: 20,
+              top: 20.h,
+              left: 20.w,
               child: Container(
                 decoration: BoxDecoration(
                   color: ColorsManager.redColor,

@@ -17,6 +17,6 @@ class AmountModel {
   Map<String, dynamic> toJson() => {
         'total': total,
         'currency': currency,
-        'details': details?.toJson(),
+        'details': details.toJson(),
       };
 }
