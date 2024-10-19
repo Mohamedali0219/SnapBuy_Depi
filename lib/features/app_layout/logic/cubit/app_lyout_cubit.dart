@@ -7,6 +7,7 @@ import 'package:snap_buy_app/features/home/ui/home_screen.dart';
 import 'package:snap_buy_app/features/shop/ui/shop_screen.dart';
 
 class AppLayoutCubit extends Cubit<AppLayoutState> {
+
   AppLayoutCubit() : super(AppLyoutInitial());
 
   List<Widget> screens = [
