@@ -38,14 +38,14 @@ class ProductGridView extends StatelessWidget {
           );
         }
         return SizedBox(
-          height: hight * 0.6,
+          height: hight * 0.5,
           child: GridView.builder(
             padding: EdgeInsets.all(8.0.sp),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, // Number of columns in the grid
               crossAxisSpacing: 10.0.sp, // Spacing between columns
               mainAxisSpacing: 10.0.sp, // Spacing between rows
-              childAspectRatio: 0.6.sp, // Aspect ratio of each item
+              childAspectRatio: 0.50, // Aspect ratio of each item
             ),
             itemCount: products.length,
             itemBuilder: (context, index) {

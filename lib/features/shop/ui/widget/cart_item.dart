@@ -35,7 +35,7 @@ class CartItem extends StatelessWidget {
           //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              width: 150.w,
+              width: 100.w,
               height: 100.h,
               decoration: BoxDecoration(
                 color: Colors.grey[200],
@@ -51,6 +51,7 @@ class CartItem extends StatelessWidget {
               children: [
                 Text(
                   displayTitle,
+                  overflow: TextOverflow.clip,
                   style: TextStyles.styleBold(context,
                       fontSize: 20.sp, color: ColorsManager.darkColor),
                 ),
