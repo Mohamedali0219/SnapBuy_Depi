@@ -9,65 +9,70 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Profile"),
+        title: const Text("My Profile"),
         actions: [
-          IconButton(icon: Icon(Icons.search), onPressed: () {}),
+          IconButton(
+              icon: const Icon(Icons.logout_rounded),
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+                Navigator.popAndPushNamed(context, Routes.loginScreen);
+              }),
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         children: [
           // Profile Info
-          CircleAvatar(
+          const CircleAvatar(
             radius: 40,
             backgroundImage: AssetImage('assets/pfp.jpg'),
             // Add this to see a placeholder in case the image isn't loaded
             backgroundColor:
                 Colors.grey, // Placeholder color if image doesn't load
           ),
-          SizedBox(height: 16),
-          Text('Matilda Brown',
+          const SizedBox(height: 16),
+          const Text('Matilda Brown',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
           Text(FirebaseAuth.instance.currentUser!.email!),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           // List of options
           ListTile(
-            title: Text("My orders"),
-            subtitle: Text("Already have 12 orders"),
-            trailing: Icon(Icons.arrow_forward_ios),
+            title: const Text("My orders"),
+            subtitle: const Text("Already have 12 orders"),
+            trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {
               // Navigate to My Orders Page
               context.pushNamed(Routes.orderScreen);
             },
           ),
           ListTile(
-            title: Text("Shipping addresses"),
-            subtitle: Text("3 addresses"),
-            trailing: Icon(Icons.arrow_forward_ios),
+            title: const Text("Shipping addresses"),
+            subtitle: const Text("3 addresses"),
+            trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {},
           ),
           ListTile(
-            title: Text("Payment methods"),
-            subtitle: Text("Visa **34"),
-            trailing: Icon(Icons.arrow_forward_ios),
+            title: const Text("Payment methods"),
+            subtitle: const Text("Visa **34"),
+            trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {},
           ),
           ListTile(
-            title: Text("Promocodes"),
-            subtitle: Text("You have special promocodes"),
-            trailing: Icon(Icons.arrow_forward_ios),
+            title: const Text("Promocodes"),
+            subtitle: const Text("You have special promocodes"),
+            trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {},
           ),
           ListTile(
-            title: Text("My reviews"),
-            subtitle: Text("Reviews for 4 items"),
-            trailing: Icon(Icons.arrow_forward_ios),
+            title: const Text("My reviews"),
+            subtitle: const Text("Reviews for 4 items"),
+            trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {},
           ),
           ListTile(
-            title: Text("Settings"),
-            subtitle: Text("Notifications, password"),
-            trailing: Icon(Icons.arrow_forward_ios),
+            title: const Text("Settings"),
+            subtitle: const Text("Notifications, password"),
+            trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {},
           ),
         ],
@@ -75,14 +80,14 @@ class ProfilePage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 4, // For Profile Page
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          const BottomNavigationBarItem(
               icon: Icon(Icons.shopping_bag), label: 'Shop'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart), label: 'Bag'),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               icon: Icon(Icons.favorite), label: 'Favorites'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );

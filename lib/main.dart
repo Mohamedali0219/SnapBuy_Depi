@@ -27,6 +27,7 @@ void main() async {
   Hive.registerAdapter(MetaAdapter());
 
   await Hive.openBox(Boxes.onBoardingBox);
+  await Hive.openBox(Boxes.loginBox);
   await Hive.openBox<ProductModel>(Boxes.shoppingCartBox);
   await Hive.openBox<ProductModel>(Boxes.favouriteProductsBox);
   Stripe.publishableKey = ApiKeys.publishableKey;

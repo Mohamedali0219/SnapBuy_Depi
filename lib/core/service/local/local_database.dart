@@ -6,9 +6,8 @@ import 'package:snap_buy_app/features/home/data/model/product/product_model.dart
 class LocalDatabase {
   LocalDatabase._();
   static final onboardingBox = Hive.box(Boxes.onBoardingBox);
+  static final loginBox = Hive.box(Boxes.loginBox);
 
-
-  
   static final boxFavourite =
       Hive.box<ProductModel>(Boxes.favouriteProductsBox);
   static final boxShopping = Hive.box<ProductModel>(Boxes.shoppingCartBox);
@@ -18,7 +17,15 @@ class LocalDatabase {
         defaultValue: false);
   }
 
-  static  setUserSeenOnBoarding() {
+  static bool hasUserLoggedIn() {
+    return loginBox.get(AppConstant.hasUserLoggedIn, defaultValue: false);
+  }
+
+  static setUserLoggedIn() {
+    loginBox.put(AppConstant.hasUserLoggedIn, true);
+  }
+
+  static setUserSeenOnBoarding() {
     onboardingBox.put(AppConstant.hasUserSeenOnBoarding, true);
   }
 
@@ -31,7 +38,7 @@ class LocalDatabase {
     boxFavourite.deleteAt(index);
   }
 
- static List<ProductModel> getFavouriteProducts() {
+  static List<ProductModel> getFavouriteProducts() {
     return boxFavourite.values.toList();
   }
 
@@ -43,11 +50,12 @@ class LocalDatabase {
   static deleteProductFromShoppingCart(int index) {
     boxShopping.deleteAt(index);
   }
-  static deleteAllProductsFromShoppingCart(){
+
+  static deleteAllProductsFromShoppingCart() {
     boxShopping.clear();
   }
 
- static List<ProductModel> getShoppingCartProducts() {
+  static List<ProductModel> getShoppingCartProducts() {
     return boxShopping.values.toList();
   }
 }

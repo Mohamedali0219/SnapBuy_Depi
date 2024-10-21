@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:snap_buy_app/core/app_constant.dart';
@@ -40,11 +42,12 @@ class _SplashScreenState extends State<SplashScreen> {
     if (!mounted) return; // Check if the widget is still mounted
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: SystemUiOverlay.values);
-    if (isLoggedInUser) {
+    if (LocalDatabase.hasUserLoggedIn()) {
       context.pushNamedAndRemoveUntil(Routes.appLayoutScreen,
           predicate: (route) => false);
     } else {
       if (LocalDatabase.hasUserSeenOnBoarding()) {
+        log(LocalDatabase.hasUserLoggedIn().toString());
         // i will change this to sign in screen
         context.pushNamedAndRemoveUntil(Routes.registerScreen,
             predicate: (route) => false);

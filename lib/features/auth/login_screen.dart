@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:snap_buy_app/core/app_constant.dart';
 import 'package:snap_buy_app/core/helper/extensions/navigation_extension.dart';
 import 'package:snap_buy_app/core/routes/routes.dart';
+import 'package:snap_buy_app/core/service/local/local_database.dart';
 import 'package:snap_buy_app/core/themes/colors_manager.dart';
 import 'package:snap_buy_app/core/themes/text_styles.dart';
 import 'package:snap_buy_app/core/widgets/custom_app_button.dart';
@@ -94,6 +98,8 @@ class LoginScreen extends StatelessWidget {
                                   password: passwordcon.text);
                           LoginScreen.email = emailcon.text;
                           if (credential.user!.emailVerified) {
+                            LocalDatabase.setUserLoggedIn();
+                            log(LocalDatabase.hasUserLoggedIn().toString());
                             context.pushNamedAndRemoveUntil(
                                 Routes.appLayoutScreen,
                                 predicate: (route) => false);

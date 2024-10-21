@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:snap_buy_app/core/helper/extensions/navigation_extension.dart';
 import 'package:snap_buy_app/core/routes/routes.dart';
+import 'package:snap_buy_app/core/service/local/local_database.dart';
 import 'package:snap_buy_app/core/service/remote/stripe/stripe_service.dart';
 import 'package:snap_buy_app/features/auth/squared_image.dart';
 import 'package:snap_buy_app/features/auth/widgets/custom_text_form_feild.dart';
@@ -112,6 +113,7 @@ class Register extends StatelessWidget {
                                         id: FirebaseAuth
                                             .instance.currentUser!.uid,
                                         name: usernamecon.text);
+                                    LocalDatabase.setUserLoggedIn();  
                                     context.pushNamedAndRemoveUntil(
                                         Routes.appLayoutScreen,
                                         predicate: (route) => false);
