@@ -99,6 +99,7 @@ class Register extends StatelessWidget {
                                       email: emailcon.text,
                                       password: passwordcon.text,
                                     );
+
                                     addUserDetails(
                                       usernamecon.text.trim(),
                                       Register.email = emailcon.text.trim(),

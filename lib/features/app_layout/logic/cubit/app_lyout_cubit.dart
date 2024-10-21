@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:snap_buy_app/features/app_layout/logic/cubit/app_lyout_state.dart';
 import 'package:snap_buy_app/features/favourite/ui/widget/favourite_screen.dart';
 import 'package:snap_buy_app/features/home/ui/home_screen.dart';
+import 'package:snap_buy_app/features/profile/ui/profile_view.dart';
 import 'package:snap_buy_app/features/shop/ui/shop_screen.dart';
 
 class AppLayoutCubit extends Cubit<AppLayoutState> {
@@ -13,8 +14,7 @@ class AppLayoutCubit extends Cubit<AppLayoutState> {
     const HomeScreen(),
     const ShoppingCartScreen(),
     const FavouriteScreen(),
-    Container(),
-    Container(),
+    const ProfilePage(),
   ];
 
   int currentIndex = 0;

@@ -7,6 +7,8 @@ import 'package:snap_buy_app/features/auth/register.dart';
 import 'package:snap_buy_app/features/home/data/model/product/product_model.dart';
 import 'package:snap_buy_app/features/onboarding/ui/onboarding_screen.dart';
 import 'package:snap_buy_app/features/product_detials/ui/product_detials_screen.dart';
+import 'package:snap_buy_app/features/profile/ui/my_orders_view.dart';
+import 'package:snap_buy_app/features/profile/ui/widgets/order_details.dart';
 import 'package:snap_buy_app/features/spalsh/ui/splash_screen.dart';
 
 class AppRoutes {
@@ -33,6 +35,10 @@ class AppRoutes {
 
       case Routes.forgetPassword:
         return MaterialPageRoute(builder: (_) => const ForgetPassword());
+      case Routes.orderScreen:
+        return MaterialPageRoute(builder: (_) => const MyOrdersPage());
+      case Routes.orderDetailsScreen:
+        return MaterialPageRoute(builder: (_) => const OrderDetailsPage());
     }
 
     return null;
